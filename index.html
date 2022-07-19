@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator mt-5">
+            <div class="navbar">
+                <span>
+                    <img src="./images/light-calc.svg" alt="" height="20px" width="20px">
+                    Calculator
+                </span>
+                <p>
+                    <img type="button" class="standardHistory" src="./images/history-svgrepo-com.svg" height="20px"
+                        width="20px" alt="">
+                </p>
+
+
+
+            </div>
+
+
+
+            <div class="menu">
+                <div class="setting">
+                    <div class="dropdown">
+
+                        <div class="sidenavbar p-2" style="position: absolute; overflow: visible;" id="collapseExample">
+
+                            <div class="x" id="myTab" role="tablist" style="display: block;background-color: #e6e8e9;">
+                                <p class="s nav-item" role="presentation">
+                                    <span class="standard nav-link active" style="font-weight:bold;" id="home-tab"
+                                        data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+                                        aria-controls="home" aria-selected="true"><span class="sm"
+                                            style="display:inline;">&#9776;</span>Standard</span>
+
+                                </p>
+
+                                <p class="sc nav-item" style="display: none;font-weight:bold" role="presentation">
+                                    <span class="scientific nav-link" id="contact-tab" data-bs-toggle="tab"
+                                        data-bs-target="#contact" type="button" role="tab" aria-controls="contact"
+                                        aria-selected="false"><span class="scm"
+                                            style="display:none;">&#9776;</span>Scientific</span>
+                                </p>
+                                <p class="p nav-item" style="display: none;font-weight:bold" role="presentation">
+                                    <span class="programmer nav-link" id="profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
+                                        aria-selected="false"> <span class="pm" style="display:none;">&#9776;</span>
+                                        Programmer</span>
+                                </p>
+                                <p class="dc nav-item" style="display: none;font-weight:bold" role="presentation">
+                                    <span class="date nav-link" id="date-tab" data-bs-toggle="tab"
+                                        data-bs-target="#datetab" type="button" role="tab" aria-controls="datetab"
+                                        aria-selected="false"><span class="dm" style="display:none;">&#9776;</span>Date
+                                        Calculation</span>
+                                </p>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="shistory"
+                    style="display:none;position:absolute;overflow:visible;background-color: #a5afb1; color: rgb(19, 13, 13); width: 100%;height: 300px;overflow: scroll;">
+
+                    <nav>
+                        <div class="nav nav-tabs p-2" id="nav-tab" role="tablist">
+                            <button class="nav-link active mr-3" style="color: #181313; margin-left: 150px;"
+                                id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+                                role="tab" aria-controls="nav-home" aria-selected="true">History</button>
+                            <button class="nav-link ml-4" style="color: #181313; margin-left: 20px;"
+                                id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">Memory</button>
+
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="hist">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="mem">
+                                <p></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tab-content" id="myTabContent">
+                    <!-- standard tab starts -->
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                        <div class="calculator-screen p-1">
+                            <p>
+                                <small>.</small>
+                            </p>
+
+                            <div class="result">
+                                <p style="font-weight: bold;"> </p>
+                            </div>
+                            <div class="input"><small>
+                                    <p>0</p>
+
+                                </small></div>
+                        </div>
+                        <div class="calculator-controls">
+                            <span class="memclear controls text-muted " value="mc" type="button">MC</span>
+                            <span class="memrecall controls text-muted" value="mr" type="button">MR</span>
+                            <span class="memadd controls" value="m+" style="font-weight: bold;" type="button">M+</span>
+                            <span class="memsub controls" value="m-" style="font-weight: bold;" type="button">M-</span>
+                            <span class="memstore controls" value="ms" style="font-weight: bold;"
+                                type="button">MS</span>
+                        </div>
+
+                        <div class="calculator-keys">
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="/100">%</button>
+                            <button type="button" class="Notoperator btn waves-effect"
+                                style="background-color:#ecf1f3 ;" value="ce">CE</button>
+                            <button type="button" class="Notoperator btn waves-effect"
+                                style="background-color:#ecf1f3 ;" value="c">C</button>
+                            <button type="button" class="Notoperator btn waves-effect"
+                                style="background-color:#ecf1f3 ;" value="ce">&#9003;</button>
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="r">¹⁄ₓ</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="**2">x²</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="√">&#8730;</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="/">&#xf7;</button>
+
+                            <button type="button" value="7" class="operator btn btn-light waves-effect">7</button>
+                            <button type="button" value="8" class="operator btn btn-light waves-effect">8</button>
+                            <button type="button" value="9" class="operator btn btn-light waves-effect">9</button>
+                            <button type="button" value="*" class="operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">&#215;</button>
+
+
+                            <button type="button" value="4" class="operator btn btn-light waves-effect">4</button>
+                            <button type="button" value="5" class="operator btn btn-light waves-effect">5</button>
+                            <button type="button" value="6" class="operator btn btn-light waves-effect">6</button>
+                            <button type="button" value="-" class="operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">&#8722;</button>
+
+
+                            <button type="button" value="1" class="operator btn btn-light waves-effect">1</button>
+                            <button type="button" value="2" class="operator btn btn-light waves-effect">2</button>
+                            <button type="button" value="3" class="operator btn btn-light waves-effect">3</button>
+                            <button type="button" value="+" class="operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">+</button>
+
+                            <button type="button" value="±" class="operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">±</button>
+                            <button type="button" value="0" class="operator btn btn-light waves-effect">0</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value=".">.</button>
+                            <button type="button" value="=" class="operator btn waves-effect btn-primary">=</button>
+                        </div>
+                    </div>
+                    <!-- standard tab ends -->
+
+                    <!-- programmer tab starts -->
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="calculator-screen p-1">
+                            <p>
+                                <small>.</small>
+                            </p>
+
+
+                            <div class="result">
+                                <p style="font-weight: bold;"> </p>
+                            </div>
+                            <div class="input"><small>
+                                    <p>0</p>
+
+                                </small></div>
+                        </div>
+                        <div class="symbol-display ml-2">
+                        
+                            <button type="button" style="border: none;background-color: #ecf1f3!important" class="hex" value="h">HEX</button><br>
+                                <button type="button" style="border: none;background-color: #ecf1f3;" class="dec" value="d">DEC</button><br>
+                                <button type="button" style="border: none;background-color: #ecf1f3;"class="oct" value="o">OCT</button><br>
+                                <button type="button" style="border: none;background-color: #ecf1f3;" class="bin" value="b">BIN</button><br>
+                        </div>
+
+
+
+                        <div class="pcalculator-controls">
+                            <span class="pcontrols" type="button"><span
+                                    style="font-size:large;font-weight: bold;">&#9617;</span></span>
+                            <span class="pcontrols" style="font-weight: bold;" type="button">&#9617;</span>
+                            <span class="pcontrols" style="font-weight: bold;" type="button">QWORD</span>
+                            <span class="pmemstore pcontrols" style="font-weight: bold;" type="button">MS</span>
+                        </div>
+
+                        <div class="display mb-3">
+                            <hr style="color: #a5afb1;">
+                            <span><img src="./images/nand.svg" alt="" height="30px" width="40px">Bitwise
+                                &#x2304;</span>
+                            <span class="p-3"><sup>>></sup><sub>>></sub> Bit Shift&#x2304;</span>
+
+                        </div>
+
+
+                        <div class="pcalculator-keys">
+
+                            <button type="button" class="pg btn waves-effect" style="background-color:#a5afb1 ;"
+                                value="A">A</button>
+                            <button type="button" class="pg btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="<<">
+                                << </button>
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#ecf1f3 ;"
+                                        value=">>">>></button>
+                                    <button type="button" class="Notoperator btn waves-effect"
+                                        style="background-color:#ecf1f3 ;" value="c">C</button>
+                                    <button type="button" class="Notoperator btn waves-effect"
+                                        style="background-color:#ecf1f3 ;" value="ce">&#9003;</button>
+
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#a5afb1;"
+                                        value="B">B</button>
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#ecf1f3 ;"
+                                        value="(">(</button>
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#ecf1f3 ;"
+                                        value=")">)</button>
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#ecf1f3 ;"
+                                        value="/100">%</button>
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#ecf1f3 ;"
+                                        value="/">&#xf7;</button>
+
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#a5afb1 ;"
+                                        value="C">C
+                                    </button>
+                                    <button type="button" value="7" class="pg btn btn-light waves-effect">7</button>
+                                    <button type="button" value="8" class="pg btn btn-light waves-effect">8</button>
+                                    <button type="button" value="9" class="pg btn btn-light waves-effect">9</button>
+                                    <button type="button" value="*" class="pg btn waves-effect"
+                                        style="background-color:#ecf1f3 ;">&#215;</button>
+
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#a5afb1 ;"
+                                        value="D">D
+                                    </button>
+                                    <button type="button" value="4" class="pg btn btn-light waves-effect">4</button>
+                                    <button type="button" value="5" class="pg btn btn-light waves-effect">5</button>
+                                    <button type="button" value="6" class="pg btn btn-light waves-effect">6</button>
+                                    <button type="button" value="-" class="pg btn waves-effect"
+                                        style="background-color:#ecf1f3 ;">&#8722;</button>
+
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#a5afb1 ;"
+                                        value="E">E</button>
+                                    <button type="button" value="1" class="pg btn btn-light waves-effect">1</button>
+                                    <button type="button" value="2" class="pg btn btn-light waves-effect">2</button>
+                                    <button type="button" value="3" class="pg btn btn-light waves-effect">3</button>
+                                    <button type="button" value="+" class="pg btn waves-effect"
+                                        style="background-color:#ecf1f3 ;">+</button>
+
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#a5afb1 ;"
+                                        value="F">F</button>
+                                    <button type="button" value="±" class="pg btn waves-effect"
+                                        style="background-color:#ecf1f3 ;">±</button>
+                                    <button type="button" value="0" class="pg btn btn-light waves-effect">0</button>
+                                    <button type="button" class="pg btn waves-effect" style="background-color:#ecf1f3 ;"
+                                        value=".">.</button>
+                                    <button type="button" value="~" class="pg btn waves-effect btn-primary">=</button>
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- prorammer tab ends -->
+
+                    <!-- scientific tab starts -->
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="calculator-screen p-1">
+                            <p>
+                                <small>.</small>
+                            </p>
+
+                            <div class="result">
+                                <p style="font-weight: bold;"> </p>
+                            </div>
+                            <div class="input"><small>
+                                    <p>0</p>
+
+                                </small></div>
+                        </div>
+
+                        <div class="scalculator-controls">
+                            <span class="memclear scontrols text-muted " type="button">MC</span>
+                            <span class="memrecall scontrols text-muted" type="button">MR</span>
+                            <span class="memadd scontrols" style="font-weight: bold;" type="button">M+</span>
+                            <span class="memsub scontrols" style="font-weight: bold;" type="button">M-</span>
+                            <span class="memstore scontrols" style="font-weight: bold;" type="button">MS</span>
+                        </div>
+
+                        <div class="sdisplay mb-3">
+                            <hr style="color: #a5afb1;">
+                            <span><img src="./images/trigonometry.png" alt="" height="15px" width="15px"> Trigonometry
+                                &#x2304;</span>
+                            <span class="p-3">ℱ Function &#x2304;</span>
+
+                        </div>
+
+
+                        <div class="scalculator-keys">
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="d">2nd</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="π">π</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="e">e</button>
+                            <button type="button" class="Notoperator btn waves-effect"
+                                style="background-color:#ecf1f3 ;" value="c">C</button>
+                            <button type="button" class="Notoperator btn waves-effect"
+                                style="background-color:#ecf1f3 ;" value="ce">&#9003;</button>
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="r">¹⁄ₓ</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="**2">x²</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="a">|x|</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="x">exp</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="%">mod</button>
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="√">&#8730;</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="(">(</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value=")">)</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="!">n!</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="/">&#xf7;</button>
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="**">x^y</button>
+                            <button type="button" value="7" class="operator btn btn-light waves-effect">7</button>
+                            <button type="button" value="8" class="operator btn btn-light waves-effect">8</button>
+                            <button type="button" value="9" class="operator btn btn-light waves-effect">9</button>
+                            <button type="button" value="*" class="operator operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">&#215;</button>
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="10**">10^x
+                            </button>
+                            <button type="button" value="4" class="operator btn btn-light waves-effect">4</button>
+                            <button type="button" value="5" class="operator btn btn-light waves-effect">5</button>
+                            <button type="button" value="6" class="operator btn btn-light waves-effect">6</button>
+                            <button type="button" value="-" class="operator operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">&#8722;</button>
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="l">log</button>
+                            <button type="button" value="1" class="operator btn btn-light waves-effect">1</button>
+                            <button type="button" value="2" class="operator btn btn-light waves-effect">2</button>
+                            <button type="button" value="3" class="operator btn btn-light waves-effect">3</button>
+                            <button type="button" value="+" class="operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">+</button>
+
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value="n">ln</button>
+                            <button type="button" value="±" class="operator btn waves-effect"
+                                style="background-color:#ecf1f3 ;">±</button>
+                            <button type="button" value="0" class="operator btn btn-light waves-effect">0</button>
+                            <button type="button" class="operator btn waves-effect" style="background-color:#ecf1f3 ;"
+                                value=".">.</button>
+                            <button type="button" value="=" class="operator btn waves-effect btn-primary">=</button>
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- scientific tab ends -->
+
+                    <!-- date tab starts -->
+                    <div class="tab-pane fade" id="datetab" role="tabpanel" aria-labelledby="datetab">
+
+                        <div class="dcalculator-screen p-5">
+                            <p type="button" class="date1">From</p>
+                            <input type="date" id="date1" name="date1">
+
+
+                            <p type="button" class="date2">To</p>
+                            <input type="date" id="date2" name="date2">
+
+
+                            <hr>
+                            <p type="button" class="dateDiff">Diffrence</p>
+                            <span style="font-weight:bold">
+                                <span class="year"></span> <span class="month"></span> <span class="week"></span> <span
+                                    class="days"></span>
+                            </span>
+                            <small style="display: block;" class="ttldays"></small>
+                        </div>
+
+                    </div>
+                    <!-- date tab ends -->
+
+                </div>
+            </div>
+
+            <!-- jquery n pooper cdn -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                crossorigin="anonymous"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="index.js"></script>
+</body>
+
+</html>
